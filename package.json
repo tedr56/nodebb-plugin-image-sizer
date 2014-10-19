@@ -1,0 +1,22 @@
+{
+  "name": "nodebb-plugin-image-sizer",
+  "version": "0.0.2",
+  "description": "This plugin allows you to resize images in NodeBB",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kern--/nodebb-plugin-image-sizer"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "image",
+    "resize"
+  ],
+  "author":  "Kern--",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Kern--/nodebb-plugin-image-sizer/issues"
+  },
+  "readmeFilename": "README.md"
+}
