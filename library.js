@@ -39,7 +39,7 @@ function getMultString(match, src, mult)
 
 var ImageSizer = {
     sizeImages: function(postData, callback) {
-        percentRegex = /<img src="([^@]*)@([0-9]+)%"/g;
+        percentRegex = /<img src="([^@]*)@([0-9]+)%(25)?"/g; // TODO: figure out why "25" gets appended on v0.5.2
         absoluteRegex = /<img src="([^@]*)@([0-9]*)x([0-9]*)"/g;
         multiplyRegex = /<img src="([^@]*)@([0-9]*\.?[0-9]*)"/g;
 
