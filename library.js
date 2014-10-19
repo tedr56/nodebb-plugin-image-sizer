@@ -49,9 +49,7 @@ var ImageSizer = {
         tmp = tmp.replace(multiplyRegex, getMultString);
         tmp = tmp.replace(absoluteRegex, getSetString);
 
-        console.log("uhhh");
-
-        return tmp;
+        return callback(null, tmp);
     }
 };
 
