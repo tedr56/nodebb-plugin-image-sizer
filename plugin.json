@@ -1,0 +1,10 @@
+{
+    "id": "nodebb-plugin-image-sizer",
+    "name": "Image Sizer",
+    "description": "Adds image sizing markup to embedded images",
+    "url": "",
+    "library": "./library.js",
+    "hooks": [
+        {"hook": "filter:post.parse", "method": "sizeImages", "priority":6}
+    ]
+}
