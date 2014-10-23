@@ -3,21 +3,13 @@ function getSetString(match, src, width, height)
     if (width == "" && height === "")
         return match;
 
-    var onload = ""
-    if (width == "")
-        onload += "var width = (" + height + "/this.height)*this.width;";
-    else
-        onload += "var width = " + width + ";";
+    var onload = "";
+    if (height !== "")
+        onload += "this.style.maxHeight = '" + height + "px';";
+    else if (width !== ""){
+        onload += "this.style.maxHeight = (" + width + " / this.width) * this.height + 'px';";
+    }
 
-    if (height == "")
-        onload += "var height = (" + width + "/this.width)*this.height;";
-    else
-        onload += "var height = " + height + ";";
-
-
-    onload +=
-        "this.style.width = width + 'px';" +
-        "this.style.height = height + 'px';";
     return "<img src=\"" + src + "\" onload=\"" + onload + "\"";
 }
 
@@ -30,10 +22,9 @@ function getMultString(match, src, mult)
     if (mult == "")
         return match;
     var onload =
-        "var width = this.width * " + mult + ";" +
         "var height = this.height * " + mult + ";" +
-        "this.style.width = width + 'px';" +
-        "this.style.height = height + 'px';";
+        "this.style.width = 'auto';" +
+        "this.style.maxHeight = height + 'px';";
     return "<img src=\"" + src + "\" onload=\"" + onload + "\"";
 }
 
@@ -49,7 +40,7 @@ var ImageSizer = {
         tmp = tmp.replace(multiplyRegex, getMultString);
         tmp = tmp.replace(absoluteRegex, getSetString);
 
-        return callback(null, tmp);
+        callback(null, tmp);
     }
 };
 
