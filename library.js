@@ -40,11 +40,11 @@ var ImageSizer = {
 
         var tmp = data.postData.content;
 
-        tmp = tmp.replace(percentRegex, getPercentString);
-        tmp = tmp.replace(multiplyRegex, getMultString);
-        tmp = tmp.replace(absoluteRegex, getSetString);
+        data.postData.content = data.postData.content.replace(percentRegex, getPercentString);
+        data.postData.content = data.postData.content.replace(multiplyRegex, getMultString);
+        data.postData.content = data.postData.content.replace(absoluteRegex, getSetString);
 
-        callback(null, tmp);
+        callback(null, data);
     }
 };
 
