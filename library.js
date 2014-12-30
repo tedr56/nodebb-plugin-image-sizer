@@ -34,13 +34,11 @@ var ImageSizer = {
         absoluteRegex = /<img src="([^@]*)@([0-9]*)x([0-9]*)"/g;
         multiplyRegex = /<img src="([^@]*)@([0-9]*\.?[0-9]*)"/g;
 
-        var tmp = postData;
+        data.postData.content = data.postData.content.replace(percentRegex, getPercentString);
+        data.postData.content = data.postData.content.replace(multiplyRegex, getMultString);
+        data.postData.content = data.postData.content.replace(absoluteRegex, getSetString);
 
-        tmp = tmp.replace(percentRegex, getPercentString);
-        tmp = tmp.replace(multiplyRegex, getMultString);
-        tmp = tmp.replace(absoluteRegex, getSetString);
-
-        callback(null, tmp);
+        callback(null, data);
     }
 };
 
